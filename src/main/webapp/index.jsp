@@ -11,5 +11,6 @@
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
     </div>
+    <jsp:forward page="index.jsp"/>
 </body>
 </html>

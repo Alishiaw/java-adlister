@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class DaoFactory {
     private static Ads adsDao;
 
@@ -6,5 +8,8 @@ public class DaoFactory {
             adsDao = new ListAdsDao();
         }
         return adsDao;
+
     }
+
+
 }
