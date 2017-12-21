@@ -1,17 +1,17 @@
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import javax.servlet.annotation.WebServlet;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
+
+@WebServlet(name = "LogoutServlet", urlPatterns = "/logout")
+
+public class LogoutServlet extends HttpServlet {
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("user" !=null) {
-
-        }
-        }
+        request.getRequestDispatcher("/logout.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -19,8 +19,8 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         boolean validAttempt = username.equals("admin") && password.equals("password");
 
-        if (validAttempt) {
-            response.sendRedirect("/profile");
+        if (username.length() == 0 || password.length()==0) {
+            session.setAttribute("message","Please Login");
         } else {
             response.sendRedirect("/login");
         }

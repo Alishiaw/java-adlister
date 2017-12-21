@@ -6,6 +6,13 @@
         <jsp:param name="title" value="Welcome to my site!" />
     </jsp:include>
 </head>
+
+<%
+    String errorMessage = (String) session.getAttribute("errorMessage");
+    if (null !=errorMessage) %>
+<h4>ErrorMessage</h4>
+
+
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
